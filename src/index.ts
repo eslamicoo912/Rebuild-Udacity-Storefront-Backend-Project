@@ -1,7 +1,8 @@
 import express, { Application, Request, Response } from 'express'
 import morgan from 'morgan'
 import * as dotenv from 'dotenv'
-import userHandler from './handlers/user.handlers'
+import userHandlers from './handlers/user.handlers'
+import productHandlers from './handlers/product.handlers'
 
 dotenv.config()
 
@@ -13,7 +14,8 @@ app.use(morgan('short'))
 app.use(express.json())
 
 // routes
-userHandler(app)
+userHandlers(app)
+productHandlers(app)
 
 // start express server
 app.listen(PORT, () => {
