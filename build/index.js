@@ -25,18 +25,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var morgan_1 = __importDefault(require("morgan"));
 var dotenv = __importStar(require("dotenv"));
+var user_handlers_1 = __importDefault(require("./handlers/user.handlers"));
+var product_handlers_1 = __importDefault(require("./handlers/product.handlers"));
+var order_handlers_1 = __importDefault(require("./handlers/order.handlers"));
 dotenv.config();
 var PORT = process.env.PORT || 3000;
 // create an instance server
 var app = (0, express_1.default)();
-// HTTP request logger middleware
+// middlewares
 app.use((0, morgan_1.default)('short'));
-// add routing for / path
-app.get('/', function (req, res) {
-    res.json({
-        message: 'Hello World 🌍'
-    });
-});
+app.use(express_1.default.json());
+// routes
+(0, user_handlers_1.default)(app);
+(0, product_handlers_1.default)(app);
+(0, order_handlers_1.default)(app);
 // start express server
 app.listen(PORT, function () {
     console.log("Server is starting at prot:".concat(PORT));
