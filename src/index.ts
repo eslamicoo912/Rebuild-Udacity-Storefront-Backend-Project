@@ -3,6 +3,7 @@ import morgan from 'morgan'
 import * as dotenv from 'dotenv'
 import userHandlers from './handlers/user.handlers'
 import productHandlers from './handlers/product.handlers'
+import orderHandlers from './handlers/order.handlers'
 
 dotenv.config()
 
@@ -16,6 +17,7 @@ app.use(express.json())
 // routes
 userHandlers(app)
 productHandlers(app)
+orderHandlers(app)
 
 // start express server
 app.listen(PORT, () => {
