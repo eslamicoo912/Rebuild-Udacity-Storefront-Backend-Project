@@ -14,8 +14,6 @@ module.exports = {
   rules: {
     semi: ['error', 'never'],
     'no-use-before-define': ['error', { functions: true, classes: true }],
-    'prettier/prettier': 2, // Means error
-    'no-console': 1, // Means warning
     'no-var': 'error',
     'prefer-const': 'error'
   }
