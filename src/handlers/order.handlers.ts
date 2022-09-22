@@ -11,11 +11,7 @@ const createOrder = async (req: Request, res: Response, next: NextFunction) => {
     const userid = req.body.userid
     const status = req.body.status
     const newOrder = await ordermodel.createOrder(productid, quantity, userid, status)
-    res.json({
-      status: 'success',
-      data: { ...newOrder },
-      message: 'order created successfully'
-    })
+    res.json(newOrder)
   } catch (error) {
     next(error)
   }

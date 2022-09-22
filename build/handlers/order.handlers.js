@@ -65,11 +65,7 @@ var createOrder = function (req, res, next) { return __awaiter(void 0, void 0, v
                 return [4 /*yield*/, ordermodel.createOrder(productid, quantity, userid, status_1)];
             case 1:
                 newOrder = _a.sent();
-                res.json({
-                    status: 'success',
-                    data: __assign({}, newOrder),
-                    message: 'order created successfully'
-                });
+                res.json(newOrder);
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();

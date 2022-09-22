@@ -214,7 +214,7 @@ describe('Test order endpoints', function () {
             }
         });
     }); });
-    it('test patch /orders/1 endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
+    it('test patch /orders/2 endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
         var res;
         return __generator(this, function (_a) {
             switch (_a.label) {

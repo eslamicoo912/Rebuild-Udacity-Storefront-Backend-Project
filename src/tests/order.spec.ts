@@ -93,6 +93,11 @@ describe('Test order endpoints', () => {
     const res = await request.get('/orders/2')
     expect(res.status).toBe(200)
   })
+
+  it('test patch /orders/2 endpoint', async () => {
+    const res = await request.patch('/orders/2')
+    expect(res.status).toBe(200)
+  })
   it('test delete /orders/2 endpoint', async () => {
     const res = await request.delete('/orders/2')
     expect(res.status).toBe(200)
