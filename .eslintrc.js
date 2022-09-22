@@ -12,7 +12,6 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
-    semi: ['error', 'never'],
     'no-use-before-define': ['error', { functions: true, classes: true }],
     'no-var': 'error',
     'prefer-const': 'error'
