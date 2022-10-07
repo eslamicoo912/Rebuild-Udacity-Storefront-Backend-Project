@@ -20,11 +20,8 @@ var validateToken = function (req, res, next) {
                 next();
             }
             catch (error) {
-                res.status(401).json({ message: 'invalid token' });
+                res.status(401).json({ message: 'please enter a valid token' });
             }
-        }
-        if (!token) {
-            res.status(401).json({ message: 'no token' });
         }
     }
     catch (error) {

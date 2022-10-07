@@ -79,16 +79,6 @@ describe('Test user endpoints', () => {
     expect(res.status).toBe(200)
   })
 
-  it('test get users/1 endpoint', async () => {
-    const res = await request.get('/users/1')
-    expect(res.status).toBe(200)
-  })
-
-  it('test post /users endpoint', async () => {
-    const res = await request.post('/users')
-    expect(res.status).toBe(200)
-  })
-
   it('test patch /users/1 endpoint', async () => {
     const res = await request.patch('/users/1')
     expect(res.status).toBe(200)
