@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express'
 import UserModel from '../models/userModel'
 import jwt from 'jsonwebtoken'
 import config from '../config'
+import { validateToken } from '../middleware/authentication.middleware'
 
 const usermodel = new UserModel()
 
@@ -84,8 +85,9 @@ const authenticateUser = async (req: Request, res: Response, next: NextFunction)
 
 const routes = (app: express.Application) => {
   app.post('/users', createUser)
-  app.get('/users', getAllUsers)
-  app.get('/users/:id', getOneUser)
+  app.post('/authenticate', authenticateUser)
+  app.get('/users', validateToken, getAllUsers)
+  app.get('/users/:id', validateToken, getOneUser)
   app.patch('/users/:id', updateOneUser)
   app.delete('/users/:id', deleteOneUser)
 }

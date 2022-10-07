@@ -53,6 +53,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var userModel_1 = __importDefault(require("../models/userModel"));
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var config_1 = __importDefault(require("../config"));
+var authentication_middleware_1 = require("../middleware/authentication.middleware");
 var usermodel = new userModel_1.default();
 var createUser = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var firstname, lastname, password, newUser, token, error_1;
@@ -197,8 +198,9 @@ var authenticateUser = function (req, res, next) { return __awaiter(void 0, void
 }); };
 var routes = function (app) {
     app.post('/users', createUser);
-    app.get('/users', getAllUsers);
-    app.get('/users/:id', getOneUser);
+    app.post('/authenticate', authenticateUser);
+    app.get('/users', authentication_middleware_1.validateToken, getAllUsers);
+    app.get('/users/:id', authentication_middleware_1.validateToken, getOneUser);
     app.patch('/users/:id', updateOneUser);
     app.delete('/users/:id', deleteOneUser);
 };
